@@ -161,7 +161,8 @@ class GazeboConnection():
     def resetRobot(self):
 
         robot_reset_request = SetModelStateRequest()
-        robot_reset_request.model_state.model_name = self.robot_namespace
+        # robot_reset_request.model_state.model_name = self.robot_namespace
+        robot_reset_request.model_state.model_name = "robot"
         robot_reset_request.model_state.pose.position.x = self.initial_pose["x_init"]
         robot_reset_request.model_state.pose.position.y = self.initial_pose["y_init"]
         robot_reset_request.model_state.pose.position.z = self.initial_pose["z_init"]

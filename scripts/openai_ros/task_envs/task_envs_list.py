@@ -5,8 +5,10 @@ LAST UPDATE: 2021.10.06
 
 AUTHOR:     OPENAI_ROS
             Neset Unver Akmandor (NUA)
+            Hongyu Li (LHY)
 
 E-MAIL: akmandor.n@northeastern.edu
+        li.hongyu1@northeastern.edu
 
 DESCRIPTION: TODO...
 
@@ -228,6 +230,18 @@ def RegisterOpenAI_Ros_Env(task_env, robot_id=0, max_episode_steps=10000, data_f
 
         # import our training environment
         from openai_ros.task_envs.firefly import firefly_tentabot_drl
+    
+    # LHY EDIT
+    elif task_env == ('Stretchtentabot_drl-v0' + str(robot_id)):
+        register(
+            id=task_env,
+            entry_point='openai_ros.task_envs.stretch.stretch_tentabot_drl:StretchTentabotDRL',
+            max_episode_steps=max_episode_steps,
+            kwargs={'robot_id': robot_id, 'data_folder_path': data_folder_path},
+        )
+
+        # import our training environment
+        from openai_ros.task_envs.stretch import stretch_tentabot_drl
 
     elif task_env == 'WamvNavTwoSetsBuoys-v0':
 
